@@ -1,0 +1,35 @@
+metadata:
+  labels:
+    podpurpose: mavenbuild
+spec:
+  containers:
+  - name: jnlp
+    image: jenkins/jnlp-agent-alpine:latest
+    volumeMounts:
+    - name: home-volume
+      mountPath: /home/jenkins    
+    env:
+    - name: CONTAINER_ENV_VAR
+      value: jnlp    
+    - name: HOME
+      value: /home/jenkins  
+    - name: JENKINS_URL
+      value: http://jenkins-svc
+    - name: JENKINS_TUNNEL
+      value: jenkins-svc:50000
+    workingDir: /home/jenkins/agent
+  - name: maven
+    image: maven:3.8.1-jdk-8
+    command:
+    - sleep
+    args:
+    - 99d
+    env:
+    - name: CONTAINER_ENV_VAR
+      value: maven
+    volumeMounts:
+    - name: home-volume
+      mountPath: /home/jenkins          
+  volumes:
+  - name: home-volume
+    emptyDir: {}  
