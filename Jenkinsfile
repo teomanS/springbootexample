@@ -9,7 +9,7 @@ pipeline {
       steps {
         container('maven') {
           sh 'echo MAVEN_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
-          sh 'mvn -version'
+          sh 'ls -al'
         }
       }
     }
