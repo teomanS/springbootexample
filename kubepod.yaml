@@ -30,11 +30,6 @@ spec:
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
-    - name: settingsxml
-      mountPath: /tmp/.m2/             
   volumes:
   - name: home-volume
     emptyDir: {}  
-  - name: settingsxml
-    secret:
-      secretName: settingtest  
