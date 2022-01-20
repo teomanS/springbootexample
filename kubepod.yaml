@@ -29,7 +29,12 @@ spec:
       value: maven
     volumeMounts:
     - name: home-volume
-      mountPath: /home/jenkins          
+      mountPath: /home/jenkins   
+    - name: settingsxml
+      mountPath: /root/.m2/             
   volumes:
   - name: home-volume
     emptyDir: {}  
+  - name: settingsxml
+    secret:
+      secretName: settingtest  
