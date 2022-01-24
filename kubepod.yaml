@@ -18,8 +18,8 @@ spec:
     - name: JENKINS_TUNNEL
       value: jenkins-svc:50000
     workingDir: /home/jenkins/agent
-  - name: maven
-    image: maven:3.8.1-jdk-8
+  - name: dindm
+    image: teomans/dindm:0.0.1
     command:
     - sleep
     args:
