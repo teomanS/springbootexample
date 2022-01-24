@@ -31,6 +31,7 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'dockerreg', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USER')]) {
             sh "unset MAVEN_CONFIG && cd complete && ./mvnw -s /root/tmp/settings.xml clean && ./mvnw -s /root/tmp/settings.xml spring-boot:build-image -DDOCKER_REGISTRY=teopocregistery.azurecr.io -DDOCKER_REGISTRY_USER=$NEXUS_USER -DDOCKER_REGISTRY_PASSWORD=$NEXUS_PASSWORD"
           }
+          sleep 100000
         }
       }
     }
