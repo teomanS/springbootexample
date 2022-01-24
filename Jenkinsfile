@@ -12,7 +12,7 @@ pipeline {
         PROJECT_NAME = "springbootexample"
       }
       steps {
-        withSonarQubeEnv('SonarCloudOne') {
+        withSonarQubeEnv('SonarQubeScanner') {
             sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
             -Dsonar.java.binaries=build/classes/java/ \
             -Dsonar.projectKey=$PROJECT_NAME \
