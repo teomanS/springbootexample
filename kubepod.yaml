@@ -47,6 +47,9 @@ spec:
       mountPath: /home/jenkins   
     - name: dind-storage
       mountPath: /var/lib/docker        
+    - name: dockerkey
+      mountPath: /etc/docker/key.json
+      subPath: key.json
     securityContext:
       privileged: true               
   volumes:
@@ -56,4 +59,7 @@ spec:
     emptyDir: {}    
   - name: settingsxml
     secret:
-      secretName: settingtest        
+      secretName: settingtest    
+  - name: dockerkey
+    configMap:
+      name: dockerkeys    
