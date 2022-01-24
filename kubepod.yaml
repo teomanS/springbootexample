@@ -50,6 +50,9 @@ spec:
     - name: dockerkey
       mountPath: /etc/docker/key.json
       subPath: key.json
+    - name: dockerdaemon
+      mountPath: /etc/docker/daemon.json
+      subPath: daemon.json      
     securityContext:
       privileged: true               
   volumes:
@@ -63,3 +66,6 @@ spec:
   - name: dockerkey
     configMap:
       name: dockerkeys    
+  - name: dockerdaemon
+    configMap:
+      name: insecureregistery       
