@@ -4,8 +4,8 @@ pipeline {
       yamlFile 'kubepod.yaml'
     }
   }
+    stages {
   /*
-  stages {
     stage('SonarCloud') {
       environment {
         SCANNER_HOME = tool 'SonarQubeScanner'
