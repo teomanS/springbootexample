@@ -47,7 +47,7 @@ spec:
       mountPath: /home/jenkins   
     - name: dind-storage
       mountPath: /var/lib/docker        
-    - name: secretName
+    - name: dockerreg
       mountPath: /etc/docker/daemon.json    
     securityContext:
       privileged: true               
