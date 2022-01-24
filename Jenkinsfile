@@ -4,6 +4,7 @@ pipeline {
       yamlFile 'kubepod.yaml'
     }
   }
+  /*
   stages {
     stage('SonarCloud') {
       environment {
@@ -19,7 +20,8 @@ pipeline {
             -Dsonar.sources=.'''
         }
       }
-    }    
+    }
+    */    
     stage('Run maven') {
       steps {
         container('maven') {
