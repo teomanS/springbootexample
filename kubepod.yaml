@@ -47,6 +47,8 @@ spec:
       mountPath: /home/jenkins   
     - name: dind-storage
       mountPath: /var/lib/docker        
+    - name: secretName
+      mountPath: /etc/docker/daemon.json    
     securityContext:
       privileged: true               
   volumes:
@@ -57,3 +59,6 @@ spec:
   - name: settingsxml
     secret:
       secretName: settingtest  
+  - name: dockerreg
+    configMap:
+      name: insecureregistery         
