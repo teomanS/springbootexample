@@ -43,7 +43,7 @@ spec:
     - name: INSECURE_REGISTERY
       value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
     command: 
-    - sh
+    - docker-entrypoint.sh
     args:
     - --insecure-registry=nexus-docker-svc.nexus.svc.cluster.local
     volumeMounts:
