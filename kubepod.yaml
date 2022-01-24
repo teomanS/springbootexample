@@ -24,7 +24,7 @@ spec:
     - name: CONTAINER_ENV_VAR
       value: maven  
     - name: DOCKER_HOST
-      value: tcp://localhost:2376
+      value: tcp://localhost:2375
     command:
     - sleep
     args:
@@ -38,7 +38,7 @@ spec:
       mountPath: /var/lib/docker        
     workingDir: /home/jenkins/agent    
   - name: dind
-    image: docker:19.03-dind
+    image: docker:18.05-dind
     env:
     - name: INSECURE_REGISTERY
       value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
