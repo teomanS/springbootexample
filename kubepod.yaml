@@ -31,7 +31,9 @@ spec:
     - name: home-volume
       mountPath: /home/jenkins   
     - name: settingsxml
-      mountPath: /root/tmp/             
+      mountPath: /root/tmp/    
+    securityContext:
+      privileged: true               
   volumes:
   - name: home-volume
     emptyDir: {}  
