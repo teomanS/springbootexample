@@ -42,6 +42,10 @@ spec:
     env:
     - name: INSECURE_REGISTERY
       value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
+    command: 
+    - sh
+    args:
+    - --insecure-registry=nexus-docker-svc.nexus.svc.cluster.local
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
