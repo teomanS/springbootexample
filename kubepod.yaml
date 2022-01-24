@@ -40,8 +40,8 @@ spec:
   - name: dind
     image: docker:18.05-dind
     env:
-    - name: INSECURE_REGISTERY
-      value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
+    - name: DOCKER_OPTS
+      value : "--insecure-registry=nexus-docker-svc.nexus.svc.cluster.local"
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
