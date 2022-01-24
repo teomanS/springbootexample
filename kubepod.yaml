@@ -38,12 +38,10 @@ spec:
       mountPath: /var/lib/docker        
     workingDir: /home/jenkins/agent    
   - name: dind
-    image: docker:19.03.0-dind
+    image: docker:18.05-dind
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
-    - name: settingsxml
-      mountPath: /root/tmp/  
     - name: dind-storage
       mountPath: /var/lib/docker        
     securityContext:
