@@ -38,14 +38,10 @@ spec:
       mountPath: /var/lib/docker        
     workingDir: /home/jenkins/agent    
   - name: dind
-    image: docker:18.05-dind
+    image: docker:20.10.12-dind
     env:
     - name: INSECURE_REGISTERY
       value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
-    command: 
-    - docker-entrypoint.sh
-    args:
-    - --insecure-registry=nexus-docker-svc.nexus.svc.cluster.local
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
