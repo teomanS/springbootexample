@@ -18,25 +18,41 @@ spec:
     - name: JENKINS_TUNNEL
       value: jenkins-svc:50000
     workingDir: /home/jenkins/agent
-  - name: dindm
-    image: teomans/dindm:0.0.1
-    command:
-    - sleep
-    args:
-    - 99d
+  - name: maven
+    image: maven:3.8.1-jdk-8       
     env:
     - name: CONTAINER_ENV_VAR
-      value: maven
+      value: jnlp    
+    - name: HOME
+      value: /home/jenkins  
+    - name: JENKINS_URL
+      value: http://jenkins-svc
+    - name: JENKINS_TUNNEL
+      value: jenkins-svc:50000
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
     - name: settingsxml
-      mountPath: /root/tmp/    
+      mountPath: /root/tmp/  
+    - name: dind-storage
+      mountPath: /var/lib/docker        
+    workingDir: /home/jenkins/agent    
+  - name: dind
+    image: docker:18.05-dind
+    volumeMounts:
+    - name: home-volume
+      mountPath: /home/jenkins   
+    - name: settingsxml
+      mountPath: /root/tmp/  
+    - name: dind-storage
+      mountPath: /var/lib/docker        
     securityContext:
       privileged: true               
   volumes:
   - name: home-volume
     emptyDir: {}  
+  - name: dind-storage
+    emptyDir: {}    
   - name: settingsxml
     secret:
       secretName: settingtest  
