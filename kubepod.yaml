@@ -39,7 +39,7 @@ spec:
     workingDir: /home/jenkins/agent    
   - name: dind
     image: docker:19.03.0-dind
-    command: ["--insecure-registry=nexus-docker-svc.nexus.svc.cluster.local"]
+    command: ["sh --insecure-registry=nexus-docker-svc.nexus.svc.cluster.local"]
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
