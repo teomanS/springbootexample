@@ -22,7 +22,11 @@ spec:
     image: maven:3.8.1-jdk-8       
     env:
     - name: CONTAINER_ENV_VAR
-      value: maven    
+      value: maven  
+    command:
+    - sleep
+    args:
+    - 99d        
     volumeMounts:
     - name: home-volume
       mountPath: /home/jenkins   
