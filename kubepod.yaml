@@ -38,7 +38,7 @@ spec:
       mountPath: /var/lib/docker        
     workingDir: /home/jenkins/agent    
   - name: dind
-    image: docker:20.10.12-dind
+    image: docker:19.03-dind
     env:
     - name: INSECURE_REGISTERY
       value : "[\"nexus-docker-svc.nexus.svc.cluster.local\"]"    
